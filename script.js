@@ -4,6 +4,9 @@ const formValidation = (function() {
     const iptZipCode = document.getElementById('zipCode');
     const iptPassword = document.getElementById('password');
     const iptConfirmPw = document.getElementById('confirmPw');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const mainForm = document.querySelector('form');
 
     const iptErrorEmail = document.getElementById('iptErrorEmail');
     const iptErrorCountry = document.getElementById('iptErrorCountry');
@@ -11,19 +14,28 @@ const formValidation = (function() {
     const iptErrorPassword = document.getElementById('iptErrorPassword');
     const iptErrorConfirmPw = document.getElementById('iptErrorConfirmPw');
 
-    function emailValidation(event) {
-        if (!iptEmail.validity.typeMismatch) {
-            iptEmail.setCustomValidity('');
-            iptErrorEmail.textContent = null;
-            iptErrorEmail.classList.add('hidden');
-        } else {
+    submitBtn.addEventListener('click', (e) => {
+        if (!mainForm.reportValidity()) {
+            e.preventDefault();
+        }
+        if (iptEmail.value === '') {
+            iptEmail.setCustomValidity('Entering your email is required');
+            iptErrorEmail.textContent = 'Entering your email is required';
+            iptErrorEmail.classList.remove('hidden');
+            e.preventDefault();
+        }
+    });
+
+    iptEmail.addEventListener('input', () => {
+        if (iptEmail.validity.typeMismatch) {
             iptEmail.setCustomValidity('Please enter a valid email addres')
             iptErrorEmail.textContent = 'Please enter a valid email addres';
             iptErrorEmail.classList.remove('hidden');
+        } else {
+            iptEmail.setCustomValidity('');
+            iptErrorEmail.textContent = null;
+            iptErrorEmail.classList.add('hidden');
         }
-    };
-    iptEmail.addEventListener('input', () => {
-        emailValidation();
     });
 
 }());
