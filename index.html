@@ -9,31 +9,31 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <form action="thanks.html" method="get" novalidate>
+    <form id="mainForm" action="thanks.html" method="get" novalidate>
         <fieldset>
             <legend>Hey man, nice form</legend>
             <div class="iptContainer">
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder=" " required>
                 <label for="email">Email</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorEmail"></div>
             </div>
             <div class="iptContainer">
-                <input type="text" name="country" id="country">
+                <input type="text" name="country" id="country" placeholder=" " required>
                 <label for="country">Country</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorCountry"></div>
             </div>
             <div class="iptContainer">
-                <input type="text" name="zipCode" id="zipCode">
+                <input type="text" name="zipCode" id="zipCode" placeholder=" " required>
                 <label for="zipCode">Zip Code</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorZipCode"></div>
             </div>
             <div class="iptContainer">
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" placeholder=" " required>
                 <label for="password">Password</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorPassword"></div>
             </div>
             <div class="iptContainer">
-                <input type="password" name="confirmPw" id="confirmPw">
+                <input type="password" name="confirmPw" id="confirmPw" placeholder=" " required>
                 <label for="confirmPw">Confirm Password</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorConfirmPw"></div>
             </div>

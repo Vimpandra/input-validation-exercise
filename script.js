@@ -6,7 +6,7 @@ const formValidation = (function() {
     const iptConfirmPw = document.getElementById('confirmPw');
     const submitBtn = document.getElementById('submitBtn');
 
-    const mainForm = document.querySelector('form');
+    const mainForm = document.getElementById('mainForm');
 
     const iptErrorEmail = document.getElementById('iptErrorEmail');
     const iptErrorCountry = document.getElementById('iptErrorCountry');
@@ -14,14 +14,8 @@ const formValidation = (function() {
     const iptErrorPassword = document.getElementById('iptErrorPassword');
     const iptErrorConfirmPw = document.getElementById('iptErrorConfirmPw');
 
-    submitBtn.addEventListener('click', (e) => {
+    mainForm.addEventListener('click', (e) => {
         if (!mainForm.reportValidity()) {
-            e.preventDefault();
-        }
-        if (iptEmail.value === '') {
-            iptEmail.setCustomValidity('Entering your email is required');
-            iptErrorEmail.textContent = 'Entering your email is required';
-            iptErrorEmail.classList.remove('hidden');
             e.preventDefault();
         }
     });
