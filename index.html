@@ -9,7 +9,7 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <form id="mainForm" action="thanks.html" method="get" novalidate>
+    <form  id="mainForm" novalidate>
         <fieldset>
             <legend>Hey man, nice form</legend>
             <div class="iptContainer">
@@ -23,7 +23,7 @@
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorCountry"></div>
             </div>
             <div class="iptContainer">
-                <input type="text" name="zipCode" id="zipCode" placeholder=" " required>
+                <input type="text" name="zipCode" id="zipCode" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder=" " required>
                 <label for="zipCode">Zip Code</label>
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorZipCode"></div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="errorMessage hidden" aria-live="polite" id="iptErrorConfirmPw"></div>
             </div>
         </fieldset>
-        <button type="submit" id="submitBtn">Submit</button>
+        <button type="button" id="submitBtn">Submit</button>
     </form>
 </body>
 </html>

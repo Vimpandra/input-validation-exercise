@@ -14,21 +14,48 @@ const formValidation = (function() {
     const iptErrorPassword = document.getElementById('iptErrorPassword');
     const iptErrorConfirmPw = document.getElementById('iptErrorConfirmPw');
 
-    mainForm.addEventListener('click', (e) => {
-        if (!mainForm.reportValidity()) {
-            e.preventDefault();
-        }
-    });
-
     iptEmail.addEventListener('input', () => {
         if (iptEmail.validity.typeMismatch) {
             iptEmail.setCustomValidity('Please enter a valid email addres')
-            iptErrorEmail.textContent = 'Please enter a valid email addres';
+            iptErrorEmail.textContent = iptEmail.validity;
+            console.log(iptEmail.validity);
             iptErrorEmail.classList.remove('hidden');
         } else {
             iptEmail.setCustomValidity('');
             iptErrorEmail.textContent = null;
             iptErrorEmail.classList.add('hidden');
+        }
+    });
+
+    iptCountry.addEventListener('input', () => {
+        if (iptCountry.value.length < 3) {
+            iptCountry.setCustomValidity('Plase enter a valid country name');
+            iptErrorCountry.textContent = 'Plase enter a valid country name';
+            iptErrorCountry.classList.remove('hidden');
+        } else {
+            iptCountry.setCustomValidity('');
+            iptErrorCountry.textContent = null;
+            iptErrorCountry.classList.add('hidden');
+        }
+    });
+
+    iptZipCode.addEventListener('input', () => {
+        if (iptZipCode.validity.patternMismatch) {
+            iptZipCode.setCustomValidity('Please enter a valid brazilian CEP');
+            iptErrorZipCode.textContent = 'Please enter a valid brazilian CEP';
+            iptErrorZipCode.classList.remove('hidden');
+        } else {
+            iptZipCode.setCustomValidity('');
+            iptErrorZipCode.textContent = null;
+            iptErrorZipCode.classList.add('hidden');
+        }
+    });
+
+    submitBtn.addEventListener('click', (e) => {
+        if (iptEmail.validity.valid) {
+            window.location = './thanks.html';
+        } else {
+            e.preventDefault();
         }
     });
 
